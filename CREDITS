@@ -1,0 +1,228 @@
+Troutfin was taken on by a single coder with an ambitious dream.
+
+       -----//-----      Bahamut-team     -----//-----
+
+Bahamut was taken on by a group of loosely knit coders that decided that
+Dreamforge just was eating up too much CPU to handle DALnet's growing user
+base.  Originally starting out as the DFhybrid project, it slowly grew
+into the Bahamut project as the peices started falling together.
+
+Bahamut is based upon the hybrid IRCd, developed for EFnet, and we most
+surely wouldn't be where we are today without the dedication of the coders
+that developed that IRCd.  The Hybrid team is outlined in the file
+included with this distribution, in doc/Hybrid-team.  Please look over
+that file, those people are as much to credit for this as the people
+listed here.
+
+People who have supported the Bahamut project with code, support, or
+testing are, in alphabetical order:
+
+Aaron Wiebe         epiphani@dal.net
+Chip Norkus         wd@dal.net
+David Friedman      driz@dal.net
+David Knepper       dakal@dal.net
+David Parton        sedition@dal.net
+Diane Bruce         db@koruna.varner.com
+Ian Westcott        rakarra@dal.net
+Jason Slagle        raistlin@bahamut.net
+Karthik Arumugham   karthik@karthik.com
+Kevin Turner        kevin@dal.net
+Lucas Madar         lucas@dal.net
+Mark Salerno        msofty@dal.net
+Peter Wood          doc_z@dal.net
+Ryan Smith          xpsycho@dal.net
+Sven Nielsen        dalvenjah@dal.net
+
+Thanks goes out to all those not listed here, your help is much
+appreciated.
+
+Feel free to contact the Bahamut team with any bugs, bug fixes, and the
+like at: coders@dal.net
+
+Also, there is a public mailing list for bahamut: dalnet-src@dal.net.
+This list would be the place to send suggestions and comments regarding
+Bahamut.
+
+And, last but not least, the Bahamut website is at http://bahamut.dal.net.
+
+Thanks for the Support,
+The Bahamut Coding Team
+
+
+       -----//-----     Hybrid-team     -----//-----
+
+The hybrid team is a group of ircd coders who were frustrated
+with the instability and all-out "dirtiness" of the efnet ircd's
+available. "hybrid" is the name for the collective efforts of a group
+of people, all of us.
+
+Anyone is welcome to contribute to this effort..
+
+We have run the code through "purify", a commercial program designed
+to find memory leaks. The code has been mostly prototyped. Profiling has also
+been done to catch slow portions of the code. Portions of "crufty" code have
+been re-written. We have also looked at making the code as easy to setup
+up and run as possible using configure, checking header files etc.
+Finally speed enhancements and other enhancements have been made to this ircd.
+
+That is not to say that there are still not bugs, There are always bugs.
+But we have reviewed each others work on this project, and are open
+to bug reports.
+
+The following people have contributed blood, sweat, and/or code to
+this release of hybrid, in nick alphabetical order.
+
+cbongo, Chris A. Bongaarts (cab@tc.umn.edu)
+comstud, Chris Behrens (cbehrens@concentric.net)
+Dianora, Diane Bruce (db@db.net)
+johan, Johannes Erdfelt (jerdfelt@eng.mindspring.net)
+orabidoo, Roger Espel LLima (espel@unix.bigots.org)
+Rodder, Jon Lusky (lusky@vol.com)
+Shadowfax, Michael Pearce (mpearce@varner.com)
+ThemBones, Brian Kraemer (kraemer@u.washington.edu)
+Wohali, Joan Touzet (joant@cadence.com)
+
+Others are welcome.
+
+email bug fixes/complaints/rotten tomatoes to ircd-hybrid@vol.com
+
+         -----//-----     Authors     -----//-----
+
+/************************************************************************
+ *   IRC - Internet Relay Chat, doc/AUTHORS
+ *   Copyright (C) 1990
+ *
+ * AUTHORS FILE:
+ *   This file attempts to remember all contributors to the IRC
+ *   developement. Names can be only added this file, no name
+ *   should never be removed. This file must be included into all
+ *   distributions of IRC and derived works.
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 1, or (at your option)
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+IRC was conceived of and written by Jarkko Oikarinen <jto@tolsun.oulu.fi>.
+IRC was originally written in University of Oulu, Computing Center.
+Jan 1991 - IRC 2.6  jto@tolsun.oulu.fi
+        - Multiple Channels and protocol changes
+
+Contributions were made by a cast of dozens, including the following:
+
+Markku Jarvinen <mta@tut.fi>: Emacs-like editing facility for the client
+
+Kimmo Suominen <kim@kannel.lut.fi>: HP-UX port
+
+Jeff Trim <jtrim@orion.cair.du.edu>: enhancements and advice
+
+Vijay Subramaniam <vijay@lll-winken.llnl.gov>: advice and ruthless publicity
+
+Karl Kleinpaste <karl@cis.ohio-state.edu>: user's manual
+
+Greg Lindahl <gl8f@virginia.edu>: AUTOMATON code, the Wumpus GM automaton,
+myriad bug fixes
+
+Bill Wisner <wisner@hayes.fai.alaska.edu>: numerous bug fixes and code
+enhancements
+
+Tom Davis <conslt16@zeus.unl.edu> and Tim Russell <russell@zeus.unl.edu>:
+VMS modifications
+
+Markku Savela <msa@tel4.tel.vtt.fi>: advice, support, and being the
+incentive to do some of our *own* coding. :)
+
+Tom Hopkins <hoppie@buengf.bu.edu>: bug fixes, quarantine lines,
+consolidation of various patches.
+
+Christopher Davis <ckd@cs.bu.edu>: EFnet/Anet gateway coding,
+many automata ;), documentation fixing.
+
+Helen Rose <hrose@cs.bu.edu>: documentation updating, and fixing.
+
+Tom Hinds <rocker@bucsf.bu.edu>: emacs client updating.
+
+Tim Miller <cerebus@bu-pub.bu.edu>: various server and client-breaking
+features.
+
+Darren Reed <avalon@coombs.anu.edu.au>: various bug fixes and enhancements.
+Introduced nickname and channelname hash tables into the server.
+
+The version 2.2 release was coordinated by Mike Bolotski
+<mikeb@salmon.ee.ubc.ca>.
+
+The version 2.4 release was coordinated by Markku Savela and
+Chelsea Ashley Dyerman
+
+The version 2.5.2 release was coordinated by Christopher Davis, Helen Rose,
+and Tom Hopkins.
+
+The versions 2.6.2, 2.7 and 2.8 releases were coordinated by Darren Reed.
+
+Contributions for the 2.8 release from the following people:
+Matthew Green <phone@coombs.anu.edu.au>
+Chuck Kane <ckane@ece.uiuc.edu>
+Matt Lyle <matt@oc.com>
+Vesa Ruokonen <ruokonen@lut.fi>
+
+Markku Savela <Markku.Savela@vtt.fi> / April 1990
+Fixed various bugs in 2.2PL1 release server (2.2msa.4) and changed
+sockets to use non-blocking mode (2.2msa.9). [I have absolutely
+nothing to do with clients :-]
+
+Chelsea Ashley Dyerman <chelsea@earth.cchem.berkeley.edu> / April 1990
+Rewrote the Makefiles, restructuring of source tree. Added libIrcd.a to
+the Makefile macros, numerous reformatting of server text messages, and
+added mkversion.sh to keep track of compilation statistics. Numerous
+bug fixes and enhancements, and co-coordinator of the 2.4 release.
+
+jarlek@ifi.uio.no added mail functions to irc.
+
+Armin Gruner <gruner@informatik.tu-muenchen.de> / May, June 1990:
+* Patched KILL-line feature for ircd.conf, works now.
+  Enhancement:  Time intervals can be specified in passwd-field.
+  Result: KILL-Line is only active during these intervals
+* Patched PRIVMSG handling, now OPER can specify masks for sending
+  private messages, advantage: msg to all at a specified server or host.
+* Little tests on irc 2.5 alpha, fixed some little typos in client code.
+  Change: common/debug.c has been moved to ircd/s_debug.c, and a
+  irc/c_debug.c has been created, for the benefit that wrong server msg
+  are displayed if client does not recognize them. (strange, if a server
+  sends an 'unknown command', isn't it?)
+
+Tom Hopkins <hoppie@buengf.bu.edu> / September, October 1990:
+* Patched msa's K lines for servers (Q lines).
+* Consolidated several patches, including Stealth's logging patch.
+* Fixed several minor bugs.
+* Has done lots of other stuff that I can't seem to remember, but he
+  always works on code, so he has to have done alot more than three
+  lines worth. :)
+
+Thanks go to those persons not mentioned here who have added their advice,
+opinions, and code to IRC.
+
+Various modifications, bugreports, cleanups and testing by:
+
+Hugo Calendar <hugo@ucscb.ucsc.edu>
+Bo Adler <adler@csvax.cs.caltech.edu>
+Michael Sandrof <ms5n+@andrew.cmu.edu>
+Jon Solomon <jsol@cs.bu.edu>
+Jan Peterson <jlp@hamblin.math.byu.edu>
+Nathan Glasser <nathan@brokaw.lcs.mit.edu>
+Helen Rose <hrose@eff.org>
+Mike Pelletier <stealth@caen.engin.umich.edu>
+Basalat Ali Raja <gwydion@tavi.rice.edu>
+Eric P. Scott <eps@toaster.sfsu.edu>
+Dan Goodwin <fornax@wpi.wpi.edu>
+Noah Friedman <friedman@ai.mit.edu>
+
