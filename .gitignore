@@ -2,3 +2,4 @@
 run
 *.so
 *.pid
+*.conf
