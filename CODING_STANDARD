@@ -1,0 +1,6 @@
+Hey, welcome to Troutfin!
+
+Just a quick coding warning: ircexplode only allocates enough for each array element to be 7kB or so.
+Same with explode.
+
+We're fine with memory leaks as long as they aren't wildly abusive to the system.

@@ -44,9 +44,55 @@ struct loaded_module {
 };
 
 #define Module struct loaded_module *
+#define ModFunc struct mod_function *
 
 extern struct mod_function *get_cb(char *, char *);
-extern struct mod_function *add_cb(char *, char *, int (*func)());
+extern struct mod_function *add_cb(char *, char *, char *);
 extern int del_cb(char *, char *);
-extern int load_module(char *);
+extern int modsym_load(char *, void*, void**);
+extern Module load_module(char *);
 extern int unload_module(char *);
+
+struct delimfile {
+  char **c;
+  int n;
+  int hc;
+  UT_hash_handle hh;
+};
+
+struct linelist {
+  struct linelist *next;
+  struct linelist *prev;
+  char **c;
+  int hc;
+};
+
+#define df struct delimfile
+
+extern int slurp_file(char *);
+
+extern Module mods;
+extern struct delimfile *configfile;
+
+#ifndef TF_PID
+#define TF_PID "./troutfin.pid"
+#endif
+
+#ifndef TF_EXENAME
+#define TF_EXENAME "troutfin"
+#endif
+
+#ifndef DPATH
+#define DPATH "/home/janicez/services-rainbow-trout" // CHANGE THIS!!!!!!
+#endif
+
+extern char **explode(char *, char *, int *);
+extern char **ircexplode(char *, int *, int *);
+
+// From IRCD
+extern int  mycmp(char *, char *);
+extern int  mycmp_diff(char *, char *);
+extern int  myncmp(char *, char *, int);
+
+#define ifccmp(x, y) if (strlen((x)) == strlen((y))) if (0==myncmp((x), (y), strlen((x))))
+#define ifcmp(x, y) if (strlen((x)) == strlen((y))) if (0==strncmpcmp((x), (y), strlen((x))))

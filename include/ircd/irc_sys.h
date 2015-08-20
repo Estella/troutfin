@@ -29,10 +29,13 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/param.h>
-#include <stdlib.h>
 
 #if defined( HAVE_UNISTD_H )
 #include <unistd.h>
+#endif
+
+#if defined( HAVE_STDLIB_H )
+#include <stdlib.h>
 #endif
 
 #if defined( HAVE_STRINGS_H )
@@ -46,6 +49,9 @@
 #if defined( HAVE_LIMITS_H )
 #include <limits.h>
 #endif
+
+#define	strcasecmp	mycmp
+#define	strncasecmp	myncmp
 
 #if !defined( HAVE_INDEX )
 #define   index   strchr

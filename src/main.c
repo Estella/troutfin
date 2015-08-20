@@ -23,15 +23,7 @@
 #include "sys.h"
 #include "struct.h"
 
-#ifndef TF_PID
-#define TF_PID "./troutfin.pid"
-#endif
-
-#ifndef TF_EXENAME
-#define TF_EXENAME "troutfin"
-#endif
-
-int cellared = 0;
+struct delimfile *configfile = NULL;
 
 // This function should return 0 if the servicesd has climed into the cellar.
 int climb(char *pf) {
@@ -57,6 +49,8 @@ int climb(char *pf) {
         printf("Climbed into cellar but PID file not written, running in BACKGROUND now (pid: %s) - try ps x | grep %s\n", buf, TF_EXENAME);
       }
       close(0);
+      close(1);
+      close(2);
       exit(0); // Finally
     }
   }
@@ -66,9 +60,100 @@ int climb(char *pf) {
 int main(int parc, char *parv[]) {
   int cellar;
 
-  climb(TF_PID);
+  slurp_file("./" TF_EXENAME ".conf");
 
-  for(;;) ;
+  //climb(TF_PID);
+
+  load_module("m_launch");
 
   return 0;
 }
+
+struct delimfile *slurp_line(int ln, char *str) {
+  struct delimfile *ll = (struct delimfile*)malloc(sizeof(struct delimfile));
+  char **valu;
+  int i = 0, j = 0;
+  if (*str == '\0') return NULL;
+  char *stripnl = str;
+  for (; *stripnl; *stripnl++) if (*stripnl == '\r' || *stripnl == '\n') *stripnl = '\0';
+  (ll)->c  = ircexplode(str, &i, &j);
+  (ll)->hc = j;
+  (ll)->n  = ln;
+  return ll;
+}
+
+int slurp_file(char *filename) {
+  struct delimfile *lln = NULL;
+  char *str = malloc(sizeof(char)*2049);
+  char **valu;
+  int i = 0, ln = 0, j = 0;
+  FILE *fp;
+  fp = fopen(filename, "r");
+  if (fp == NULL) {
+    printf("fopen failed on %s, crashing!", filename);
+    exit(72);
+  }
+  while (fgets(str, 2048, fp) != NULL) {
+    ln++;
+    lln = slurp_line(ln, strdup(str));
+    if (lln) HASH_ADD_INT(configfile, n, lln);
+  }
+  free(str);
+  return 0;
+};
+
+static int count_explode_elems(char *explode, char *string) {
+  int i = 0;
+  // Unavoidably O(len(explode)^len(string)) or something
+  for (; *explode; *explode++) for (; *string; *string++) if (*string == *explode) i++;
+  return i;
+};
+
+static int count_ircexplode_elems(char *string) {
+  int i = 0;
+  for (; *string; *string++) {
+    if (*string == ' ') i++;
+    if (*(string+1) == ':') break;
+  }
+  return i;
+};
+
+// Numel is passed by reference
+char **explode(char *explode, char *string, int *numel) {
+  *numel = count_explode_elems(explode, string);
+  int i = 0;
+
+  char *exploder;
+  char **exploded = malloc(sizeof(char)*(*numel+1)*(7681));
+
+  for (exploder = strtok(string, explode); NULL != exploder && i < *numel+1; i++, exploder = strtok(NULL, explode))
+    exploded[i] = strdup(exploder, 7680);
+  exploded[i+1] = NULL;
+  return exploded;
+};
+
+char **ircexplode(char *string, int *numel, int *hascolon) {
+  int i = 0;
+  char *exploder;
+
+  if (string[0] == ':') {
+    *string++;
+    *hascolon = 1;
+  }
+
+  char *stripnl = string;
+  for (; *stripnl; *stripnl++) if (*stripnl == '\r' || *stripnl == '\n') *stripnl = '\0';
+
+  *numel = count_ircexplode_elems(string);
+  char **exploded = malloc(sizeof(char)*(*numel+1)*(7681));
+
+  for (exploder = strtok(string, " "); NULL != exploder && i < *numel+1; i++, exploder = strtok(NULL, " ")) {
+    if (exploder[0] == ':') {
+      exploded[i] = strndup(string, 7680);
+      break;
+    }
+    exploded[i] = strndup(exploder, 7680);
+  }
+  exploded[i+1] = NULL;
+  return exploded;
+};
